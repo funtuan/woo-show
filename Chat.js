@@ -1,9 +1,9 @@
 const puppeteer = require('puppeteer');
 const HTMLDecoderEncoder = require('html-encoder-decoder');
-const nodejieba = require('nodejieba');
+// const nodejieba = require('nodejieba');
 
 const fs = require('fs');
-const replaceMsg = JSON.parse(fs.readFileSync('replaceMsg.json'));
+// const replaceMsg = JSON.parse(fs.readFileSync('replaceMsg.json'));
 
 const width = 450;
 const height = 650;
@@ -13,7 +13,7 @@ const height = 650;
  * @param  {string} message 訊息
  * @return {string}         訊息
  */
-function replaceMessage(message) {
+/* function replaceMessage(message) {
   message = message.toLowerCase();
   console.log(nodejieba.cut(message));
   const messages = nodejieba.cut(message).map((word) => {
@@ -51,7 +51,7 @@ function replaceMessage(message) {
   if (outMessage.indexOf('胸') != -1) outMessage = '';
 
   return outMessage;
-}
+} */
 
 /**
  * 替換詞彙
@@ -87,9 +87,9 @@ class Chat {
    * @param  {function} next    回傳函數
    */
   sellMsg(message, next = ()=>{}) {
-    if (this.replaceBool) {
+    /* if (this.replaceBool) {
       message = replaceMessage(message);
-    }
+    } */
     this.page.evaluate((message) => {
       document.querySelector('#messageInput').value = message;
       document.querySelector('input[value=傳送]').click();
