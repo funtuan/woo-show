@@ -4,12 +4,6 @@ const couple = [];
 const coupleSession = [
   '',
   '',
-
-  '',
-  '',
-
-  '',
-  '',
 ];
 
 for (let i = 0; i < coupleSession.length/2; i++) {

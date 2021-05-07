@@ -165,9 +165,11 @@ class Chat {
       const browser = await puppeteer.launch({
         headless: false,
         args: [
+          '--no-sandbox',
           `--window-size=${width},${height}`,
         ],
         slowMo: 100,
+        ignoreDefaultArgs: ['--disable-extensions'],
       });
       this.page = await browser.newPage();
       await this.page.setViewport({width, height: height-150});
